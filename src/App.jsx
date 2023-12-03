@@ -1,7 +1,6 @@
 // src/App.js
 import React from "react";
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Switch } from 'react-router-dom';
+import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
 import ListProjects from './components/ProjectComponents/ListProjects';
 import ProjectDetails from './components/ProjectComponents/ProjectDetails';
 
@@ -28,10 +27,10 @@ function App() {
   return (
     <Router>
       <div>
-        <Switch>
-          <Route path="/my-projects" render={() => <ListProjects projects={projects} />} />
-          <Route path="/my-projects/:projectId" exact render={() => <ProjectDetails projects={projects} />} />
-        </Switch>
+        <Routes>
+          <Route path="/my-projects" element={<ListProjects projects={projects} />}/>
+          <Route path="/my-projects/:projectId" exact element={<ProjectDetails projects={projects} />} />
+        </Routes>
       </div>
     </Router>
   );
